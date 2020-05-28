@@ -213,3 +213,28 @@ Running Analysis on Clair:
 ## Notes
 ## Issues
 ## Code history
+
+### Wednesday May 13th, 2020
+## Notes
+Merge Requests
+  - Description & Testing
+  - Include a testing section.
+    - provide steps to run their own tests.
+  WIP(Work In Progress) ticket
+
+Use Rebase instead of Merge
+
+## Issues
+## Code history
+
+### Tuesday May 27th, 2020
+## Notes
+## Issues
+## Code history
+- Will need to unprotect branch to reset forked repository
+
+      git remote add upstream https://gitlab.com/cyverse/nafigos.git
+      git fetch upstream
+      git checkout master
+      git reset --hard upstream/master
+      git push origin master --force

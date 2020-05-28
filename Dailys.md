@@ -213,3 +213,81 @@ Running Analysis on Clair:
 ## Notes
 ## Issues
 ## Code history
+
+### Thursday May 14th, 2020
+## Notes
+- [x] Spoke to Adrian on Drupal container.
+## Issues
+## Code history
+
+---
+
+# Week 5
+
+### Monday May 18th, 2020
+## Notes
+## Issues
+## Code history
+## Presentation
+### Anchore
+      Image Analysis
+      docker-compose exec engine-api anchore-cli image list
+      docker-compose exec engine-api anchore-cli vuln cyverse/atmosphere:latest
+      docker-compose exec engine-api anchore-cli image vuln cyverse/atmosphere:latest
+      docker-compose exec engine-api anchore-cli image vuln cyverse/atmosphere:latest os
+      docker-compose exec engine-api anchore-cli image vuln cyverse/atmosphere:latest all
+
+      Policies
+      docker-compose exec engine-api anchore-cli policy list
+      docker-compose exec engine-api anchore-cli evaluate check --detail cyverse/atmosphere:latest
+
+### Tuesday May 19th, 2020
+## Notes
+- [x] Anchore by default syncs data feed every 6 hours.
+  - [x] Can do a manual data sync.
+- Atmosphere analysis has `pillow`, `django` and `ansible` vulnerabilities
+- These vulnerabilities come from the national vulnerability DB.
+- Should be showing on Clair since it's currently configured to sync with DB every 2 hours.
+## Issues
+## Code history
+
+### Thursday May 21st, 2020
+## Notes
+- Currently cleaning up Nafigos-CLI
+  - nafigos get kcluster currently gets all kclusters until ID is provided, maybe change that?
+    - show all if list is `typed`?
+    - show kcluster with id
+
+|Nafigos-CLI| Completion |
+|---|---|
+|nafigos||
+|nafigos build|   |
+|nafigos build --help|:white_check_mark:|
+|nafigos create|:white_check_mark:|?
+|nafigos create kcluster|:white_check_mark:|
+|nafigos create secret||
+|nafigos create user|:white_check_mark:|
+|nafigos create wfd|:white_check_mark:|
+|nafigos delete|:white_check_mark:|
+|nafigos delete kcluster||
+|nafigos delete run||
+|nafigos delete secret||
+|nafigos delete user||
+|nafigos delete wfd||
+|nafigos get|:white_check_mark:|
+|nafigos get kcluster||
+|nafigos get run||
+|nafigos get secret||
+|nafigos get user||
+|nafigos get wfd||
+|nafigos run||
+|nafigos update|:white_check_mark:|
+|nafigos update kcluster||
+|nafigos update secret||
+|nafigos update user||
+
+
+- What to add to Nafigos build?
+
+## Issues
+## Code history

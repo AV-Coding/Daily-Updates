@@ -258,36 +258,48 @@ Running Analysis on Clair:
     - show all if list is `typed`?
     - show kcluster with id
 
-|Nafigos-CLI| Completion |
-|---|---|
-|nafigos||
-|nafigos build|   |
-|nafigos build --help|:white_check_mark:|
-|nafigos create|:white_check_mark:|?
-|nafigos create kcluster|:white_check_mark:|
-|nafigos create secret||
-|nafigos create user|:white_check_mark:|
-|nafigos create wfd|:white_check_mark:|
-|nafigos delete|:white_check_mark:|
-|nafigos delete kcluster||
-|nafigos delete run||
-|nafigos delete secret||
-|nafigos delete user||
-|nafigos delete wfd||
-|nafigos get|:white_check_mark:|
-|nafigos get kcluster||
-|nafigos get run||
-|nafigos get secret||
-|nafigos get user||
-|nafigos get wfd||
-|nafigos run||
-|nafigos update|:white_check_mark:|
-|nafigos update kcluster||
-|nafigos update secret||
-|nafigos update user||
+:white_check_mark:
+
+|Nafigos-CLI| Help Output | Check how thorough help output is| Complete  :white_check_mark:|
+|---|---|---|---|
+|nafigos|:white_check_mark:| Would need additional code to add help|:white_check_mark:|
+|nafigos build|:white_check_mark:||:white_check_mark:|
+|nafigos create|:white_check_mark:|Should subcommand sections be updated?|:white_check_mark:|
+|nafigos create kcluster|:white_check_mark:||:white_check_mark:|
+|nafigos create secret|:white_check_mark:||:white_check_mark:|
+|nafigos create user|:white_check_mark:||:white_check_mark:
+|nafigos create wfd|:white_check_mark:||:white_check_mark:|
+|nafigos delete|:white_check_mark:||:white_check_mark:|
+|nafigos delete kcluster|:white_check_mark:||:white_check_mark:|
+|nafigos delete run|:white_check_mark:||:white_check_mark:|
+|nafigos delete secret|:white_check_mark:||:white_check_mark:|
+|nafigos delete user|:white_check_mark:||:white_check_mark:|
+|nafigos delete wfd|:white_check_mark:||:white_check_mark:|
+|nafigos get|:white_check_mark:||:white_check_mark:|
+|nafigos get kcluster|:white_check_mark:||:white_check_mark:|
+|nafigos get run|:white_check_mark:||:white_check_mark:|
+|nafigos get secret|:white_check_mark:||:white_check_mark:|
+|nafigos get user|:white_check_mark:||:white_check_mark:|
+|nafigos get wfd|:white_check_mark:||:white_check_mark:|
+|nafigos run|:white_check_mark:||:white_check_mark:|
+|nafigos update|:white_check_mark:||:white_check_mark:|
+|nafigos update kcluster|:white_check_mark:||:white_check_mark:|
+|nafigos update secret|:white_check_mark:||:white_check_mark:|
+|nafigos update user|:white_check_mark:||:white_check_mark:|
 
 
-- What to add to Nafigos build?
+- What to add to Nafigos base?
+- Seems possible to add description to base 'create', 'delete', 'get' and 'update', but code in `commands.go` will need to be added.
+  - uses mitchell/cli.go file
+  - How to proceed?
+
+## Issues
+## Code history
+
+### Friday May 22nd, 2020
+## Notes
+- Created `create.go` add more description to the Nafigos CLI.
+- User no longer needs to add `--help` to command, now just needs to be missing necessary parameters
 
 ## Issues
 ## Code history

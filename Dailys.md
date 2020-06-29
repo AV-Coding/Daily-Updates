@@ -303,3 +303,118 @@ Running Analysis on Clair:
 
 ## Issues
 ## Code history
+
+---
+
+### Tuesday June 2nd, 2020
+## Notes
+- Ask Edwin how will this micro-service take in input?
+  - ex. Will a user pull a docker image and their should be a container that launches an analysis
+- Will this micro-service be part of the Nafigos-cli?
+
+## Issues
+## Code history
+    git checkout master
+    git reset --hard upstream/master
+    git checkout NAFIGOS-137
+    ls
+    git rebase master
+    git log
+    git push
+    git push -f
+    git rebase -i master
+    git push -f
+
+
+### Wednesday June 2nd, 2020
+## Notes
+
+## Issues
+
+## Code history
+
+### Tuesday June 9th, 2020
+## Notes
+
+## Issues
+
+## Code history
+    A	cs-service/Dockerfile
+    A	cs-service/README.md
+    A	cs-service/cs/cs.go
+    A	cs-service/cs/subscribe.go
+    A	cs-service/cs/workflowdefinition.go
+    A	cs-service/main.go
+
+
+    2229  git pull upstream master
+    2230  git reset --hard upstream/master
+    2231  git push origin master --force
+
+
+curl -v --user admin:foobar http://localhost:8228/v1/images # container security
+curl -v http://localhost:33493 # Nafigos-CLI
+
+---
+
+### Wednesday June 24th, 2020
+## Notes
+- [ ] Work on setting up Anchore Chart with Nafigos-CLI
+  - One of the files that will need to be updated: `~/go/src/gitlab.com/cyverse/nafigos/install/roles/nafigos/tasks/user_k8s.yml`
+  -
+
+## Issues
+
+## Code history
+
+#### Setting up helm for `stable/anchore-engine`
+  - helm repo add stable https://kubernetes-charts.storage.googleapis.com
+  - helm repo update
+  - helm install anchore-demo stable/anchore-engine #Currently doesn't work
+    - helm pull --untar stable/anchore-engine && sed -i 's#extensions/v1beta1#apps/v1#g' ./anchore-engine/charts/postgresql/templates/deployment.yaml && helm install anchore ./anchore-engine
+  - helm list
+  - ANCHORE_CLI_USER=admin
+  - ANCHORE_CLI_PASS=$(kubectl get secret --namespace default anchore-demo-anchore-engine -o jsonpath="{.data.adminPassword}" | base64 --decode; echo)
+  - ANCHORE_CLI_URL=http://anchore-anchore-engine.default.svc.cluster.local:8228/v1/
+  - anchore-cli --url http://localhost:8228/v1 --u admin --p foobar image add cyverse/rsem-prepare
+
+
+#### Setting up `stable/anchore-engine`  
+  - kubectl get deployments
+  - kubectl get service
+  - kubectl port-forward svc/anchore-anchore-engine-api 8228:8228 &
+  - anchore-cli --url http://localhost:8228/v1 --u admin --p foobar image add cyverse/rsem-prepare
+
+
+### Thursday June 25th, 2020
+## Notes
+- [x] Installation [link](https://anchore.com/blog/installing-anchore-single-command-using-helm/)
+- [ ] Work on setting up Anchore Chart with Nafigos-CLI
+  - ~~ One of the files that will need to be updated: ~/go/src/gitlab.com/cyverse/nafigos/install/roles/nafigos/tasks/user_k8s.yml ~~ *May need to make a new file in like anchore.yaml?*
+  - May need to add to ~/go/src/gitlab.com/cyverse/nafigos/install/playbook-nafigos.yml under:
+    - hosts: deploy_host
+    become: true
+    vars_files:
+      - config.yml
+    roles:
+      - go
+      - kubectl
+      - kube-apiserver
+      - istio
+      - helm
+      - nafigos_cli
+    tags:
+      - setup
+  - May need to add to ~/go/src/gitlab.com/cyverse/nafigos/install/roles/nafigos/tasks/main.yml
+    - import_tasks: anchore.yml
+      tags:
+        anchore
+
+
+## Issues
+
+## Code history
+
+#### Setting up helm for `stable/anchore-engine`
+
+#### Setting up `stable/anchore-engine`  
